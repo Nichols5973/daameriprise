@@ -1,0 +1,11 @@
+{
+  "type": "da",
+  "sites": {
+    "daameriprise": {
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json",
+      "previewOrg": "Nichols5973",
+      "previewSite": "daameriprise",
+      "contentHostUrl": "https://content.da.live/nichols5973/daameriprise/"
+    }
+  }
+}

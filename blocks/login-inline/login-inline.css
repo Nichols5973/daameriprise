@@ -1,0 +1,309 @@
+/* Login (inline) block - mobile-first
+ * Stone-grey login bar that sits directly under the hero.
+ * Mobile/tablet: full-bleed, stacked fields, collapsible (starts collapsed below 900px).
+ * Desktop (>= 900px): horizontal bar - user ID | password | Log In | New User.
+ * Wide (>= 1200px): boxed to the 1200px content grid, flush under the boxed hero.
+ */
+
+/* full-bleed below desktop (matches the hero above): drop the section content width/padding */
+.login-inline-container .login-inline-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.login-inline {
+  /* inputs, links and buttons always render on the light stone background */
+  color-scheme: light;
+  border-radius: 0 0 27.2px 27.2px;
+  background-color: var(--color-amp-stone);
+  color: var(--color-amp-text);
+  font-size: var(--body-font-size-m);
+}
+
+/* header: circled chevron toggle + title */
+.login-inline .login-inline-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px 15px;
+}
+
+.login-inline .login-inline-title {
+  margin: 0;
+  padding-inline-end: 10px;
+  font-size: var(--heading-font-size-l);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-amp-text);
+}
+
+.login-inline .login-inline-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+.login-inline .login-inline-toggle-icon {
+  position: relative;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-link);
+  border-radius: 100%;
+  color: var(--color-link);
+}
+
+/* chevron: points up when expanded, down when collapsed */
+.login-inline .login-inline-toggle-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid currentcolor;
+  border-left: 2px solid currentcolor;
+  transform: translate(-50%, -25%) rotate(45deg);
+}
+
+.login-inline .login-inline-toggle[aria-expanded='false'] .login-inline-toggle-icon::after {
+  transform: translate(-50%, -75%) rotate(225deg);
+}
+
+/* form body */
+.login-inline .login-inline-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  padding: 10px 24px 24px;
+}
+
+.login-inline .login-inline-form[hidden] {
+  display: none;
+}
+
+.login-inline .login-inline-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+/* floating-label input */
+.login-inline .login-inline-field {
+  position: relative;
+  align-self: stretch;
+  margin-bottom: 5px;
+}
+
+.login-inline .login-inline-input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 43px;
+  margin: 0;
+  padding: 10px 15px;
+  border: 1px solid var(--color-amp-text-muted);
+  border-radius: 4px;
+  background-color: var(--color-light);
+  color: var(--color-amp-text);
+  font-family: inherit;
+  font-size: var(--body-font-size-s);
+  line-height: 21px;
+}
+
+.login-inline .login-inline-label {
+  position: absolute;
+  top: 21.5px;
+  left: 15px;
+  margin-left: -3px;
+  padding: 0 5px;
+  border-radius: 5px;
+  color: rgb(47 48 51 / 75%);
+  font-size: var(--body-font-size-s);
+  line-height: 17.5px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: background-color 0.2s, color 0.2s, top 0.2s;
+}
+
+/* inputs are required, so :valid means "has a value" */
+.login-inline .login-inline-field:has(.login-inline-input:is(:focus, :valid, :autofill)) .login-inline-label {
+  top: 0;
+  background-color: var(--color-light);
+}
+
+.login-inline .login-inline-field-password .login-inline-input {
+  padding-inline-end: 65px;
+}
+
+.login-inline .login-inline-show {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 15px;
+  border: 0;
+  background: none;
+  color: var(--color-link);
+  font-family: inherit;
+  font-size: var(--body-font-size-s);
+  line-height: 1.15;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-inline .login-inline-show:hover {
+  color: var(--color-link-hover);
+}
+
+/* remember checkbox row */
+.login-inline .login-inline-remember {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 44px;
+  padding-bottom: 5px;
+  line-height: 24px;
+}
+
+.login-inline .login-inline-checkbox {
+  appearance: none;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin: 1px 9px 1px 1px;
+  border: 1.5px solid #333;
+  border-radius: 2px;
+  background: transparent no-repeat center / 12px 12px;
+  cursor: pointer;
+}
+
+.login-inline .login-inline-checkbox:checked {
+  border-color: var(--color-amp-blue);
+  background-color: var(--color-amp-blue);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.2 4.8 9 10 3' fill='none' stroke='%23fff' stroke-width='1.8'/%3E%3C/svg%3E");
+}
+
+.login-inline .login-inline-remember label {
+  cursor: pointer;
+}
+
+.login-inline .login-inline-info {
+  position: relative;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  margin-inline-start: 12px;
+  padding: 0;
+  border: 1.5px solid currentcolor;
+  border-radius: 50%;
+  background: none;
+  color: var(--color-amp-text);
+  cursor: pointer;
+}
+
+.login-inline .login-inline-info::after {
+  content: 'i';
+  position: absolute;
+  inset: 0;
+  font-size: 12px;
+  line-height: 17px;
+  text-align: center;
+}
+
+.login-inline .login-inline-help {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: var(--body-font-size-s);
+}
+
+/* links (forgot / new user) */
+.login-inline a.login-inline-link:any-link {
+  color: var(--color-link);
+  font-size: var(--body-font-size-m);
+  line-height: 1.15;
+}
+
+.login-inline a.login-inline-link:hover {
+  color: var(--color-link-hover);
+}
+
+.login-inline .login-inline-group-password > .login-inline-link {
+  margin-top: 10px;
+}
+
+/* actions: Log In pill | separator | New User */
+.login-inline .login-inline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.login-inline .login-inline-submit {
+  margin: 0;
+}
+
+.login-inline .login-inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.login-inline .login-inline-links li {
+  box-sizing: border-box;
+  min-height: 40px;
+  padding: 10px 15px 0 20px;
+  border-inline-start: 1px solid #d9d8d7;
+  line-height: 1.15;
+}
+
+@media (width >= 900px) {
+  .login-inline .login-inline-form {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0;
+    padding: 10px 0 5px 55px;
+  }
+
+  .login-inline .login-inline-group {
+    flex: 0 0 calc(100% / 3);
+  }
+
+  .login-inline .login-inline-group-user {
+    margin: 0 10px 0 15px;
+  }
+
+  .login-inline .login-inline-group-password {
+    margin: 0 20px 0 10px;
+  }
+
+  .login-inline .login-inline-actions {
+    flex-wrap: nowrap;
+  }
+}
+
+/* boxed to the content grid, like the hero above */
+@media (width >= 1200px) {
+  .login-inline-container .login-inline-wrapper {
+    box-sizing: border-box;
+    max-width: var(--grid-container-width);
+    margin: 0 auto;
+    padding: 0 var(--content-padding-inline);
+  }
+}

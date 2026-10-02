@@ -1,0 +1,22 @@
+{
+  "variantName": "columns-promo",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "purple-light",
+    "density": "normal",
+    "purpose": "promo-split-card",
+    "imagePattern": "image-half",
+    "structure": "image + eyebrow + heading + p + CTA"
+  },
+  "contentPattern": "1 row x 2 cells; cell 1: image ; cell 2: eyebrow p, h3, p, link (bold/primary button). Image cell may be authored first or second; the layout follows authored order on desktop.",
+  "usage": {
+    "pagesUsing": ["https://www.ameriprise.com/"],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [
+    { "class": "purple", "label": "Purple" }
+  ],
+  "memberVariantIds": []
+}

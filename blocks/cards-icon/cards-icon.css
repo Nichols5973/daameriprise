@@ -1,0 +1,60 @@
+/* Cards (icon) block - values from source .Categories-blocks computed styles, mobile-first */
+
+.cards-icon .cards-icon-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 48px 50px;
+  margin: 48px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-icon .cards-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 20px;
+}
+
+/* source: 64px inline svg + 20px margin; inline line box renders a 24px visual gap */
+.cards-icon .cards-icon-icon {
+  margin-bottom: 24px;
+  line-height: 0;
+}
+
+.cards-icon .cards-icon-icon .icon,
+.cards-icon .cards-icon-icon img {
+  display: block;
+  width: 64px;
+  height: 64px;
+}
+
+.cards-icon .cards-icon-icon img {
+  object-fit: contain;
+}
+
+.cards-icon .cards-icon-body {
+  color: var(--color-amp-text);
+  font-size: var(--body-font-size-xl);
+  line-height: 26px;
+}
+
+.cards-icon .cards-icon-body > * {
+  margin: 0;
+}
+
+.cards-icon .cards-icon-body > * + * {
+  margin-top: 8px;
+}
+
+.cards-icon .cards-icon-body strong {
+  font-weight: 700;
+}
+
+@media (width >= 600px) {
+  .cards-icon .cards-icon-list {
+    grid-template-columns: none;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+  }
+}

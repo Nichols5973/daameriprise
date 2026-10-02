@@ -21,8 +21,8 @@
   --bp-desktop: 900px;
   --bp-wide: 1200px;
 
-  /* grid */
-  --grid-container-width: 83.4%;
+  /* grid – full width with 20px gutters until the 1240px container kicks in */
+  --grid-container-width: 100%;
   --grid-column-width: calc(var(--grid-container-width) / 12);
   --grid-gutter-width: 8.3%;
 
@@ -37,7 +37,7 @@
   --space-4xl: 96px;
 
   /* global layout rhythm */
-  --content-padding-inline: var(--space-m);
+  --content-padding-inline: 20px;
   --main-block-space: var(--space-l);
   --section-block-space: var(--space-l);
 
@@ -105,32 +105,43 @@
   --color-yellow-200: #ebd400;
   --color-yellow-300: #cab600;
 
+  /* Ameriprise brand palette (extracted from www.ameriprise.com) */
+  --color-amp-blue: #046cb8;
+  --color-amp-blue-dark: #003f6b;
+  --color-amp-blue-tint: #e6f0f8;
+  --color-amp-navy: #00284a;
+  --color-amp-text: #1f2226;
+  --color-amp-text-muted: rgb(31 34 38 / 75%);
+  --color-amp-stone: #f3f2f1;
+  --color-amp-purple-light: #edeaf0;
+  --color-amp-border: #d6d6d6;
+
   /* semantic / named colors */
   --color-light: rgb(255 255 255);
   --color-dark: rgb(0 0 0);
-  --color-text: light-dark(var(--color-ink), var(--color-parchment));
-  --color-link: light-dark(var(--color-ink), var(--color-parchment));
-  --color-link-hover: light-dark(var(--color-rust), var(--color-gold));
-  --color-brand: var(--color-rust);
-  --color-accent: var(--color-gold);
-  --color-shaded: light-dark(var(--color-parchment), var(--color-card-dark));
+  --color-text: light-dark(var(--color-amp-text), var(--color-parchment));
+  --color-link: light-dark(var(--color-amp-blue), #6fb2e6);
+  --color-link-hover: light-dark(var(--color-amp-blue-dark), #a9d1f0);
+  --color-brand: var(--color-amp-blue);
+  --color-accent: var(--color-amp-navy);
+  --color-shaded: light-dark(var(--color-amp-stone), var(--color-card-dark));
 
-  /* fonts */
-  --font-family: montserrat, "Trebuchet MS", sans-serif;
-  --font-family-serif: "EB Garamond", georgia, serif;
+  /* fonts – "Ameriprise Sans" is Roboto; "Ameriprise Serif" (Publico) is licensed, so fall back */
+  --font-family: roboto, roboto-fallback, arial, sans-serif;
+  --font-family-serif: georgia, "Times New Roman", serif;
   --font-family-mono: "JetBrains Mono", "Courier New", monospace;
   --body-font-family: var(--font-family);
-  --heading-font-family: var(--font-family-serif);
+  --heading-font-family: var(--font-family);
 
   /* heading sizes */
-  --heading-font-size-xxl: 32.44px;
-  --heading-font-size-xl: 28.83px;
-  --heading-font-size-l: 25.63px;
-  --heading-font-size-m: 22.78px;
-  --heading-font-size-s: 20.25px;
-  --heading-font-size-xs: 18px;
-  --heading-font-size-xxs: 16px;
-  --heading-line-height: 1.15;
+  --heading-font-size-xxl: 32px;
+  --heading-font-size-xl: 28px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 22px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
+  --heading-font-size-xxs: 14px;
+  --heading-line-height: 1.25;
 
   /* body sizes */
   --body-font-size-xxxl: 25px;
@@ -139,15 +150,15 @@
   --body-font-size-l: 18px;
   --body-font-size-m: 16px;
   --body-font-size-s: 14px;
-  --body-font-size-xs: 12px;
-  --body-line-height: 1.6;
+  --body-font-size-xs: 13px;
+  --body-line-height: 1.5;
 
   /* nav / layout */
-  --nav-height: 64px;
+  --nav-height: 72px;
   --header-height: var(--nav-height);
 
   /* boilerplate compatibility – map to design tokens */
-  --background-color: light-dark(var(--color-parchment), var(--color-obsidian));
+  --background-color: light-dark(var(--color-light), var(--color-obsidian));
   --light-color: var(--color-shaded);
   --dark-color: var(--color-gray-500);
   --text-color: var(--color-text);
@@ -159,7 +170,7 @@
   --border-radius-heritage: 24px;
 
   /* gradient and glow tokens */
-  --gradient-brand: linear-gradient(135deg, var(--color-rust) 0%, var(--color-gold) 100%);
+  --gradient-brand: linear-gradient(135deg, var(--color-amp-blue) 0%, var(--color-amp-navy) 100%);
   --gradient-brand-dark: linear-gradient(135deg, var(--color-rust-bright) 0%, var(--color-gold) 100%);
   --shadow-glow-rust: 0 0 40px rgb(161 79 43 / 30%);
   --shadow-glow-gold: 0 0 40px rgb(197 160 89 / 25%);
@@ -186,9 +197,8 @@
 @media (width >= 600px) {
   :root,
   :host {
-    --heading-font-size-xxl: 44px;
-    --heading-font-size-xl: 36px;
-    --content-padding-inline: var(--space-l);
+    --heading-font-size-xxl: 36px;
+    --heading-font-size-xl: 30px;
     --main-block-space: var(--space-xl);
     --section-block-space: var(--space-xl);
   }
@@ -197,24 +207,23 @@
 @media (width >= 900px) {
   :root,
   :host {
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-    --heading-font-size-xxl: 64px;
-    --heading-font-size-xl: 48px;
-    --heading-font-size-l: 32px;
-    --heading-font-size-m: 24px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
-    --content-padding-inline: var(--space-xl);
-    --section-block-space: var(--space-3xl);
+    --heading-font-size-xxl: 41px;
+    --heading-font-size-xl: 32px;
+    --heading-font-size-l: 26px;
+    --heading-font-size-m: 22px;
+    --heading-font-size-s: 18px;
+    --heading-font-size-xs: 16px;
+    --section-block-space: var(--space-2xl);
+
+    /* two-row desktop header: 72px bar + 52px nav */
+    --header-height: 124px;
   }
 }
 
 @media (width >= 1200px) {
   :root,
   :host {
-    --grid-container-width: 1200px;
+    --grid-container-width: 1240px;
   }
 }
 
@@ -262,7 +271,7 @@ html {
 }
 
 ::selection {
-  background: light-dark(rgb(161 79 43 / 20%), rgb(197 160 89 / 30%));
+  background: light-dark(rgb(4 108 184 / 20%), rgb(111 178 230 / 30%));
   color: inherit;
 }
 
@@ -271,11 +280,6 @@ body {
   margin: 0;
   box-sizing: border-box;
   background-color: var(--background-color);
-  background-image:
-    radial-gradient(ellipse 80% 50% at 12% 8%,
-      light-dark(rgb(197 160 89 / 9%), rgb(197 160 89 / 4%)) 0%, transparent 60%),
-    radial-gradient(ellipse 55% 40% at 88% 82%,
-      light-dark(rgb(161 79 43 / 6%), rgb(161 79 43 / 3%)) 0%, transparent 50%);
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
@@ -293,7 +297,7 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  height: var(--header-height);
 }
 
 header .header,
@@ -314,24 +318,27 @@ h4,
 h5,
 h6 {
   margin-top: 0.8em;
-  margin-bottom: 0.4em;
+  margin-bottom: 0.3em;
   font-family: var(--heading-font-family);
-  font-weight: 500;
+  font-weight: 400;
   line-height: var(--heading-line-height);
   scroll-margin: 40px;
 }
 
 h1 {
   font-size: var(--heading-font-size-xxl);
-  letter-spacing: -0.02em;
 }
 
 h2 {
   font-size: var(--heading-font-size-xl);
-  letter-spacing: -0.015em;
+  line-height: 1.3;
 }
 
-h3 { font-size: var(--heading-font-size-m); }
+h3 {
+  font-size: var(--heading-font-size-m);
+  line-height: 1.3;
+}
+
 h4 { font-size: var(--heading-font-size-s); }
 h5 { font-size: var(--heading-font-size-xs); }
 h6 { font-size: var(--heading-font-size-xxs); }
@@ -340,6 +347,11 @@ h6 { font-size: var(--heading-font-size-xxs); }
   h3 { font-size: var(--heading-font-size-l); }
   h4 { font-size: var(--heading-font-size-m); }
   h5 { font-size: var(--heading-font-size-s); }
+}
+
+/* source drops section titles (h2) to 26px on wide screens */
+@media (width >= 1200px) {
+  h2 { font-size: var(--heading-font-size-l); }
 }
 
 
@@ -394,19 +406,17 @@ strong {
 a:any-link {
   color: var(--link-color);
   text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-  text-decoration-color: light-dark(rgb(26 26 26 / 30%), rgb(245 242 237 / 30%));
+  text-underline-offset: 0.15em;
   overflow-wrap: break-word;
 }
 
 a:hover {
   color: var(--link-hover-color);
   text-decoration: underline;
-  text-decoration-color: var(--link-hover-color);
 }
 
-/* buttons (AEM default content: links in standalone paragraphs) */
+/* buttons (AEM default content: links in standalone paragraphs)
+   plain link = outline pill, <strong> link = solid pill (Ameriprise button styles) */
 p.button-container {
   margin: var(--space-m) 0;
 }
@@ -419,37 +429,24 @@ button.button {
   justify-content: center;
   gap: var(--space-xs);
   max-width: 100%;
+  min-height: 42px;
   margin: 0;
-  border: 1px solid light-dark(var(--color-rust), var(--color-rust-bright));
-  border-radius: 4px;
-  padding: 20px 50px;
+  border: 2px solid var(--link-color);
+  border-radius: 24px;
+  padding: 8px 16px;
   font: inherit;
-  font-weight: 700;
-  font-size: 0.85rem;
-  line-height: 1.2;
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 20px;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  background-color: light-dark(var(--color-rust), var(--color-rust-bright));
-  background-image: linear-gradient(135deg, rgb(255 255 255 / 12%), rgb(0 0 0 / 8%));
-  color: var(--color-light);
+  background-color: transparent;
+  color: var(--link-color);
   cursor: pointer;
   overflow: hidden;
-  position: relative;
   text-overflow: ellipsis;
   white-space: nowrap;
-  transition: all 0.4s;
-}
-
-a.button:any-link::after,
-button.button::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg, transparent 30%, rgb(255 255 255 / 22%) 50%, transparent 70%);
-  transform: translateX(-120%);
-  transition: transform 0.55s ease;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
 input,
@@ -459,39 +456,30 @@ button {
   font: inherit;
 }
 
-/* Primary variant */
-a.button.primary:any-link,
-button.button.primary {
-  border-color: var(--color-rust);
-  background-color: var(--color-rust);
-  color: var(--color-light);
-}
-
 a.button:any-link:hover,
 a.button:any-link:focus-visible,
 button.button:hover,
 button.button:focus-visible {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px light-dark(rgb(161 79 43 / 30%), rgb(209 106 62 / 35%)), 0 0 0 1px var(--color-gold);
+  background-color: light-dark(var(--color-amp-blue-tint), rgb(111 178 230 / 15%));
+  color: var(--link-hover-color);
   cursor: pointer;
   text-decoration: none;
 }
 
-a.button:any-link:hover::after,
-a.button:any-link:focus-visible::after,
-button.button:hover::after,
-button.button:focus-visible::after {
-  transform: translateX(120%);
+/* Primary variant */
+a.button.primary:any-link,
+button.button.primary {
+  border-color: transparent;
+  background-color: var(--color-amp-blue);
+  color: var(--color-light);
 }
 
 a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--color-gold);
-  background-color: var(--color-gold);
+  border-color: transparent;
+  background-color: var(--color-amp-navy);
   color: var(--color-light);
 }
 
@@ -516,20 +504,29 @@ button.button:disabled:focus-visible {
 
 a.button.secondary,
 button.button.secondary {
-  border: 1.5px solid var(--color-rust);
+  border-color: var(--link-color);
   background-color: transparent;
-  color: var(--color-rust);
+  color: var(--link-color);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  border-color: var(--color-gold);
-  background-color: light-dark(rgb(197 160 89 / 8%), rgb(197 160 89 / 12%));
-  color: var(--color-gold);
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px light-dark(rgb(197 160 89 / 18%), rgb(197 160 89 / 22%));
+  background-color: light-dark(var(--color-amp-blue-tint), rgb(111 178 230 / 15%));
+  color: var(--link-hover-color);
+}
+
+/* buttons on dark backgrounds (e.g. hero): white outline pill */
+.on-dark a.button:any-link {
+  border-color: var(--color-light);
+  color: var(--color-light);
+}
+
+.on-dark a.button:any-link:hover,
+.on-dark a.button:any-link:focus-visible {
+  background-color: rgb(255 255 255 / 25%);
+  color: var(--color-light);
 }
 
 /* main content area – use design tokens for rhythm */
@@ -574,10 +571,21 @@ main img:not([width], [height]) {
   object-fit: cover;
 }
 
-/* sections – boilerplate structure with design tokens */
+/* sections – half of the source's inter-section gap (32px mobile, 48px desktop) on each side */
 :is(main, article.article-body) > .section {
   margin: inherit;
-  padding-block: var(--space-xl);
+  padding-block: var(--space-m);
+}
+
+@media (width >= 900px) {
+  :is(main, article.article-body) > .section {
+    padding-block: var(--space-l);
+  }
+}
+
+/* section-metadata style=center: centred default content (e.g. section titles) */
+main > .section.center .default-content-wrapper {
+  text-align: center;
 }
 
 main > .section:first-child {
@@ -595,6 +603,7 @@ main > .section:has(.social-share) {
 
 main > .section > div,
 article.article-body > .section > div {
+  box-sizing: border-box;
   max-width: var(--grid-container-width);
   margin: auto;
   padding: 0 var(--content-padding-inline);
@@ -606,6 +615,28 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: var(--section-block-space) 0;
+}
+
+main .section.dark {
+  background-color: var(--color-amp-navy);
+  color: var(--color-light);
+  margin: 0;
+  padding: var(--section-block-space) 0;
+}
+
+/* section-metadata style=disclaimer: small-print legal copy */
+main > .section.disclaimer {
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+  color: light-dark(var(--color-amp-text-muted), var(--color-muted));
+}
+
+main > .section.disclaimer p {
+  margin: 0 0 1em;
+}
+
+main > .section.disclaimer a:any-link {
+  color: inherit;
 }
 
 /* section-metadata style=divider: content-width (grid) border-bottom */

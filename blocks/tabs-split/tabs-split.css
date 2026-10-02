@@ -1,0 +1,253 @@
+/* Tabs (split) block - mobile-first */
+
+.tabs-split {
+  --tabs-split-accent: #972364;
+  --tabs-split-play: #007ab6;
+  --tabs-split-inset-shadow: inset 0 15px 10px -10px rgb(0 0 0 / 20%);
+  --tabs-split-radius: 24px;
+}
+
+/* tab bar */
+.tabs-split .tabs-split-list {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  margin: 28px calc(-1 * var(--content-padding-inline)) 0;
+  padding-top: 3px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+/* auto margins centre the tabs when they fit and fall back to start-aligned scrolling */
+.tabs-split .tabs-split-list > :first-child {
+  margin-inline-start: auto;
+}
+
+.tabs-split .tabs-split-list > :last-child {
+  margin-inline-end: auto;
+}
+
+.tabs-split .tabs-split-tab {
+  flex: 0 0 auto;
+  min-width: 170px;
+  margin: 0;
+  padding: 32px 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--color-amp-blue);
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.15;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.3s, box-shadow 0.3s;
+}
+
+.tabs-split .tabs-split-tab[aria-selected='true'] {
+  color: var(--tabs-split-accent);
+  font-weight: 700;
+  box-shadow: inset 0 -7px 0 0 var(--tabs-split-accent);
+}
+
+.tabs-split .tabs-split-tab:focus-visible {
+  outline: 2px solid var(--color-amp-blue);
+  outline-offset: -2px;
+}
+
+/* panel card: full-bleed and stacked (media first) on small screens */
+.tabs-split .tabs-split-panel {
+  display: flex;
+  flex-direction: column;
+  margin-inline: calc(-1 * var(--content-padding-inline));
+  border-radius: 0 0 var(--tabs-split-radius) var(--tabs-split-radius);
+  overflow: hidden;
+}
+
+.tabs-split .tabs-split-panel[hidden] {
+  display: none;
+}
+
+.tabs-split .tabs-split-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 24px;
+  background-color: var(--color-amp-stone);
+  color: var(--color-amp-text);
+}
+
+.tabs-split .tabs-split-text > * {
+  margin: 0;
+}
+
+.tabs-split .tabs-split-text h3 {
+  padding-bottom: 8px;
+  font-size: 23px;
+  line-height: 1.3;
+}
+
+/* video panel heading keeps the source's extra spacing */
+.tabs-split .tabs-split-panel:has(.tabs-split-media-linked) .tabs-split-text h3 {
+  margin-bottom: 7.8px;
+}
+
+.tabs-split .tabs-split-text p {
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+.tabs-split .tabs-split-text p.button-container {
+  margin-top: var(--space-m);
+}
+
+.tabs-split .tabs-split-media {
+  order: -1;
+  overflow: hidden;
+  background-color: var(--color-amp-stone);
+  box-shadow: var(--tabs-split-inset-shadow);
+  line-height: 0;
+}
+
+.tabs-split .tabs-split-media > p {
+  height: 100%;
+  margin: 0;
+}
+
+.tabs-split .tabs-split-media picture {
+  display: block;
+  height: 100%;
+}
+
+.tabs-split .tabs-split-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+/* video poster link with play button */
+.tabs-split .tabs-split-media-link {
+  position: relative;
+  display: block;
+  height: 100%;
+}
+
+/* video poster keeps the player's 16:9 frame */
+.tabs-split .tabs-split-media-link img {
+  aspect-ratio: 16 / 9;
+}
+
+/* source poster does not zoom on hover (overrides the global link-image zoom) */
+.tabs-split .tabs-split-media-link:hover picture img {
+  transform: none;
+  filter: none;
+}
+
+.tabs-split .tabs-split-media-link::before,
+.tabs-split .tabs-split-media-link::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+}
+
+.tabs-split .tabs-split-media-link::before {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: var(--tabs-split-play);
+  opacity: 0.8;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s;
+}
+
+.tabs-split .tabs-split-media-link::after {
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 24px solid var(--color-light);
+  transform: translate(calc(-50% + 2px), -50%);
+}
+
+.tabs-split .tabs-split-media-link:hover::before,
+.tabs-split .tabs-split-media-link:focus-visible::before {
+  opacity: 1;
+}
+
+.tabs-split .tabs-split-media-link:focus-visible {
+  outline: 2px solid var(--color-amp-blue);
+  outline-offset: -4px;
+}
+
+/* Media link text stays available to assistive tech only */
+.tabs-split .tabs-split-media-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* note below the panel */
+.tabs-split .tabs-split-notes {
+  padding-top: 20px;
+  color: var(--color-amp-text);
+  font-size: var(--body-font-size-m);
+  line-height: normal;
+  text-align: center;
+}
+
+.tabs-split .tabs-split-note[hidden] {
+  display: none;
+}
+
+.tabs-split .tabs-split-note > * {
+  margin: 0;
+}
+
+@media (width >= 600px) {
+  .tabs-split .tabs-split-text h3 {
+    font-size: 26px;
+  }
+}
+
+/* Desktop: text left, media right, inside the content container */
+@media (width >= 900px) {
+  .tabs-split .tabs-split-list {
+    margin-inline: 0;
+  }
+
+  .tabs-split .tabs-split-panel {
+    flex-direction: row;
+    margin-inline: 0;
+  }
+
+  .tabs-split .tabs-split-text {
+    box-shadow: var(--tabs-split-inset-shadow);
+  }
+
+  .tabs-split .tabs-split-panel > div {
+    box-sizing: border-box;
+    flex: 0 0 50%;
+    min-width: 0;
+  }
+
+  .tabs-split .tabs-split-panel-no-media > .tabs-split-text {
+    flex-basis: 100%;
+  }
+
+  .tabs-split .tabs-split-media {
+    order: 0;
+    border-bottom-right-radius: var(--tabs-split-radius);
+  }
+
+  .tabs-split .tabs-split-media:not(.tabs-split-media-linked) img {
+    height: 100%;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "variantName": "advisor-search-dark",
+  "baseBlock": "advisor-search",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "normal",
+    "purpose": "advisor-finder",
+    "imagePattern": "bg-pattern",
+    "structure": "icon + heading + zip form + note"
+  },
+  "contentPattern": "Row 1: background image ; Row 2: cell 1: icon, h3 ; cell 2: label text, appointment paragraph with link ; key/value rows (key | value): action (search URL), param, placeholder, search (button label), location (find-my-location label), location error ; Row N: FINRA note paragraph with link",
+  "usage": {
+    "pagesUsing": ["https://www.ameriprise.com/"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

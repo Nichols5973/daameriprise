@@ -1,0 +1,110 @@
+/* Columns (divider) block - values extracted from source (.Spotlight), mobile-first */
+
+.columns-divider {
+  color: light-dark(var(--color-dark), var(--color-text));
+}
+
+.columns-divider .columns-divider-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-divider .columns-divider-row + .columns-divider-row {
+  margin-top: 32px;
+}
+
+/* Mobile: stacked columns separated by a horizontal rule */
+.columns-divider .columns-divider-col:not(:last-child) {
+  padding-bottom: 32px;
+}
+
+.columns-divider .columns-divider-col + .columns-divider-col {
+  padding-top: 32px;
+  border-top: 1px solid #d9d8d7;
+}
+
+.columns-divider .columns-divider-col > * {
+  margin: 8px 0 0;
+}
+
+.columns-divider .columns-divider-col > :first-child {
+  margin-top: 0;
+}
+
+/* Icon: 64px brand icon, 24px above the heading */
+.columns-divider .columns-divider-icon {
+  line-height: 0;
+}
+
+.columns-divider .columns-divider-col > .columns-divider-icon + * {
+  margin-top: 24px;
+}
+
+.columns-divider .icon,
+.columns-divider .columns-divider-icon img {
+  display: block;
+  width: 64px;
+  height: 64px;
+}
+
+.columns-divider .columns-divider-icon img {
+  object-fit: contain;
+}
+
+.columns-divider h3 {
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: inherit;
+}
+
+.columns-divider p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.columns-divider .columns-divider-col > p.button-container {
+  margin-top: 32px;
+}
+
+@media (width >= 600px) {
+  .columns-divider .columns-divider-row {
+    flex-direction: row;
+  }
+
+  .columns-divider .columns-divider-col {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 32px 48px 0;
+  }
+
+  .columns-divider .columns-divider-col:not(:last-child) {
+    padding-bottom: 32px;
+  }
+
+  .columns-divider .columns-divider-col:first-child {
+    padding-inline-start: 0;
+  }
+
+  .columns-divider .columns-divider-col:last-child {
+    padding-inline-end: 0;
+  }
+
+  .columns-divider .columns-divider-col + .columns-divider-col {
+    padding-top: 32px;
+    border-top: 0;
+    border-inline-start: 1px solid #d9d8d7;
+  }
+
+  .columns-divider h3 {
+    font-size: 26px;
+  }
+}
+
+@media (width >= 900px) {
+  .columns-divider .columns-divider-col,
+  .columns-divider .columns-divider-col:not(:last-child),
+  .columns-divider .columns-divider-col + .columns-divider-col {
+    padding-block: 0;
+  }
+}

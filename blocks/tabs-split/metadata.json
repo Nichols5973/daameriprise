@@ -1,0 +1,20 @@
+{
+  "variantName": "tabs-split",
+  "baseBlock": "tabs",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "normal",
+    "purpose": "resource-tabs",
+    "imagePattern": "image-half",
+    "structure": "tab label + h3 + p + image/video"
+  },
+  "contentPattern": "One row per tab (3 rows); cell 1: tab label ; cell 2: image (or video poster image followed by a video link), h3, p, optional CTA ; optional cell 3: note paragraph shown below the panel",
+  "usage": {
+    "pagesUsing": ["https://www.ameriprise.com/"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}
