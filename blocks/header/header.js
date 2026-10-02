@@ -101,6 +101,8 @@ function setSearch(nav, open) {
  * @param {string} backLabel authored "Back" label
  */
 function buildSections(list, backLabel) {
+  // authoring tools may wrap list item text in <p>; unwrap so links are direct children
+  list.querySelectorAll('li > p').forEach((p) => p.replaceWith(...p.childNodes));
   list.classList.add('nav-sections', 'nav-list');
   const backItem = el('li', 'nav-back');
   const backBtn = el('button', 'nav-back-button', backLabel);
