@@ -1,0 +1,323 @@
+/* Advisor search (dark) block – values extracted from source .DynamicAdvisor, mobile-first */
+
+/* full-bleed band: drop the section's content-width constraint */
+.advisor-search-dark-container .advisor-search-dark-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.advisor-search-dark {
+  position: relative;
+  overflow: hidden;
+  padding: 32px 0;
+  background-color: var(--color-amp-navy);
+  color: var(--color-light);
+}
+
+/* facet pattern: natural size anchored top-left (source: background-size auto, 0 0) */
+.advisor-search-dark .advisor-search-dark-background {
+  position: absolute;
+  inset: 0;
+  line-height: 0;
+}
+
+.advisor-search-dark .advisor-search-dark-background picture,
+.advisor-search-dark .advisor-search-dark-background img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: none;
+  object-position: 0 0;
+}
+
+.advisor-search-dark .advisor-search-dark-content,
+.advisor-search-dark .advisor-search-dark-note {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  max-width: var(--grid-container-width);
+  margin: 0 auto;
+  padding-inline: var(--content-padding-inline);
+}
+
+/* intro: icon + serif heading */
+.advisor-search-dark .advisor-search-dark-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.advisor-search-dark .advisor-search-dark-intro > * {
+  margin: 0;
+}
+
+/* source hides the brand icon below the large breakpoint */
+.advisor-search-dark .advisor-search-dark-icon {
+  display: none;
+  line-height: 0;
+}
+
+.advisor-search-dark .advisor-search-dark-icon .icon,
+.advisor-search-dark .advisor-search-dark-icon img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  object-position: 0 0;
+}
+
+/* brand icon SVG ships berry-coloured; the band shows it white */
+.advisor-search-dark .advisor-search-dark-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.advisor-search-dark .advisor-search-dark-intro h3 {
+  margin: 0 0 20px;
+  padding-right: 8px;
+  color: var(--color-light);
+  font-family: var(--font-family-serif);
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* white rounded search card */
+.advisor-search-dark .advisor-search-dark-card {
+  padding: 20px;
+  border-radius: 25px;
+  background-color: var(--color-light);
+  color: var(--color-amp-text);
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+.advisor-search-dark .advisor-search-dark-card p {
+  margin: 0;
+}
+
+.advisor-search-dark .advisor-search-dark-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.advisor-search-dark .advisor-search-dark-form .advisor-search-dark-label {
+  box-sizing: border-box;
+  margin: 0 0 16px;
+  padding: 4px 0 8px;
+  font-size: var(--body-font-size-l);
+  font-weight: 700;
+  line-height: 27px;
+}
+
+.advisor-search-dark .advisor-search-dark-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.advisor-search-dark .advisor-search-dark-field {
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.advisor-search-dark .advisor-search-dark-input-group {
+  position: relative;
+}
+
+.advisor-search-dark .advisor-search-dark-input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 10px 15px;
+  border: 1px solid var(--color-amp-text-muted);
+  border-radius: 4px;
+  background-color: var(--color-light);
+  color: var(--color-amp-text);
+  font-family: var(--font-family);
+  font-size: var(--body-font-size-l);
+  line-height: 27px;
+}
+
+/* source focus: 3px dark ring flush on the field (beats the global focus-visible ring) */
+.advisor-search-dark .advisor-search-dark-form .advisor-search-dark-input:focus {
+  outline: 3px solid var(--color-amp-text);
+  outline-offset: 0;
+}
+
+/* floating label: centred in the input, floats onto the top border on focus / when filled */
+.advisor-search-dark .advisor-search-dark-float {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  margin-left: -3px;
+  padding: 0 5px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: rgb(47 48 51 / 75%);
+  font-size: var(--body-font-size-m);
+  line-height: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: background-color 0.2s, color 0.2s, top 0.2s;
+}
+
+.advisor-search-dark .advisor-search-dark-input:focus + .advisor-search-dark-float,
+.advisor-search-dark .advisor-search-dark-input:not(:placeholder-shown) + .advisor-search-dark-float {
+  top: 0;
+  background-color: var(--color-light);
+}
+
+.advisor-search-dark .advisor-search-dark-location {
+  margin: 8px 0;
+}
+
+/* "Find my location": text-link styled button */
+.advisor-search-dark .advisor-search-dark-locate {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-amp-blue);
+  font-family: var(--font-family);
+  font-size: var(--body-font-size-m);
+  line-height: normal;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.advisor-search-dark .advisor-search-dark-locate:hover {
+  color: var(--color-amp-blue-dark);
+}
+
+.advisor-search-dark .advisor-search-dark-status {
+  margin: 4px 0 0;
+}
+
+/* "Search": solid primary pill (global button.button.primary) */
+.advisor-search-dark .advisor-search-dark-submit {
+  flex: 0 0 auto;
+  margin: 20px 0;
+}
+
+.advisor-search-dark .advisor-search-dark-extra {
+  margin: 8px 0;
+  padding-top: 8px;
+  border-top: 1px solid rgb(217 216 215);
+}
+
+.advisor-search-dark .advisor-search-dark-card a:any-link {
+  color: var(--color-amp-blue);
+}
+
+/* FINRA note under the card */
+.advisor-search-dark .advisor-search-dark-note {
+  padding-top: 8px;
+  color: var(--color-light);
+  line-height: 24px;
+}
+
+.advisor-search-dark .advisor-search-dark-note-body > * {
+  margin: 0;
+}
+
+.advisor-search-dark .advisor-search-dark-note a:any-link,
+.advisor-search-dark .advisor-search-dark-note a:hover {
+  color: var(--color-light);
+}
+
+/* Tablet: label beside the ZIP field, search button inline */
+@media (width >= 600px) {
+  .advisor-search-dark .advisor-search-dark-intro h3 {
+    font-size: 26px;
+  }
+
+  .advisor-search-dark .advisor-search-dark-form {
+    flex-direction: row;
+  }
+
+  .advisor-search-dark .advisor-search-dark-form .advisor-search-dark-label {
+    flex: 0 1 50%;
+    margin: 0;
+    padding: 4px 20px 8px 0;
+  }
+
+  .advisor-search-dark .advisor-search-dark-controls {
+    flex: 1 0 auto;
+    flex-wrap: nowrap;
+  }
+
+  .advisor-search-dark .advisor-search-dark-field {
+    flex: 1 1 auto;
+    width: 203px;
+  }
+
+  .advisor-search-dark .advisor-search-dark-input {
+    font-size: var(--body-font-size-m);
+    line-height: 24px;
+  }
+
+  .advisor-search-dark .advisor-search-dark-submit {
+    margin: 0 0 0 16px;
+  }
+}
+
+/* Desktop: intro (5/12 + 1/12 gap) left, card (1/2) right, note under the card */
+@media (width >= 900px) {
+  .advisor-search-dark .advisor-search-dark-content {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .advisor-search-dark .advisor-search-dark-intro {
+    flex: 0 0 calc(100% * 5 / 12);
+    box-sizing: border-box;
+    margin-inline-end: calc(100% / 12);
+  }
+
+  .advisor-search-dark .advisor-search-dark-icon {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .advisor-search-dark .advisor-search-dark-card {
+    flex: 0 0 50%;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  /* half-width card is too narrow for label + field side by side until 1200px */
+  .advisor-search-dark .advisor-search-dark-form {
+    flex-direction: column;
+  }
+
+  .advisor-search-dark .advisor-search-dark-form .advisor-search-dark-label {
+    flex: 0 0 auto;
+    margin: 0 0 16px;
+    padding: 4px 0 8px;
+  }
+
+  .advisor-search-dark .advisor-search-dark-note-body {
+    margin-inline-start: 50%;
+  }
+}
+
+@media (width >= 1200px) {
+  .advisor-search-dark .advisor-search-dark-form {
+    flex-direction: row;
+  }
+
+  .advisor-search-dark .advisor-search-dark-form .advisor-search-dark-label {
+    flex: 0 1 50%;
+    margin: 0;
+    padding: 4px 20px 8px 0;
+  }
+}

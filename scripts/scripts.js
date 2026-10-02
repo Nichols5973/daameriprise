@@ -173,6 +173,9 @@ export function decorateMain(main) {
   inlineColorIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  main.querySelectorAll(':scope > .section div.section-metadata').forEach((sectionMeta) => {
+    applySectionMetadata(sectionMeta.closest('.section'), sectionMeta);
+  });
   decorateBlocks(main);
   if (document.contains(main)) initPageSchemas();
 }
@@ -257,6 +260,27 @@ const isStructuralDiv = (el) => el.classList.contains('section')
   || el.classList.contains('section-metadata')
   || [...el.classList].some((c) => c.endsWith('-wrapper') || c.endsWith('-container'));
 
+/**
+ * Applies a section-metadata block to its section: `style` becomes classes,
+ * other keys become data attributes. The metadata block is then removed.
+ * @param {Element} section The section element
+ * @param {Element} sectionMeta The section-metadata block element
+ */
+function applySectionMetadata(section, sectionMeta) {
+  const meta = readBlockConfig(sectionMeta);
+  Object.keys(meta).forEach((key) => {
+    if (key === 'style') {
+      meta.style.split(',').map((s) => toClassName(s.trim())).filter(Boolean)
+        .forEach((s) => section.classList.add(s));
+    } else {
+      section.dataset[toCamelCase(key)] = meta[key];
+    }
+  });
+  const wrapper = sectionMeta.parentElement;
+  sectionMeta.remove();
+  if (wrapper !== section && !wrapper.children.length) wrapper.remove();
+}
+
 function watchForTargetInjectedBlocks(main) {
   const observer = new MutationObserver((mutations) => {
     const toDecorate = new Set();
@@ -290,18 +314,7 @@ function watchForTargetInjectedBlocks(main) {
       const sectionMeta = wrapper?.querySelector('div.section-metadata');
       if (sectionMeta) {
         const section = block.closest('.section');
-        if (section) {
-          const meta = readBlockConfig(sectionMeta);
-          Object.keys(meta).forEach((key) => {
-            if (key === 'style') {
-              meta.style.split(',').map((s) => toClassName(s.trim())).filter(Boolean)
-                .forEach((s) => section.classList.add(s));
-            } else {
-              section.dataset[toCamelCase(key)] = meta[key];
-            }
-          });
-          sectionMeta.remove();
-        }
+        if (section) applySectionMetadata(section, sectionMeta);
       }
     });
 

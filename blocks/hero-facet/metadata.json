@@ -1,0 +1,20 @@
+{
+  "variantName": "hero-facet",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "blue",
+    "density": "minimal",
+    "purpose": "page-intro-hero",
+    "imagePattern": "bg-pattern+foreground-portrait",
+    "structure": "background + h1 + p + CTA + image"
+  },
+  "contentPattern": "Row 1: background image (blue facet) ; Row 2: foreground portrait image, h1, paragraph, CTA link",
+  "usage": {
+    "pagesUsing": ["https://www.ameriprise.com/"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

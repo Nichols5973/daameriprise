@@ -1,0 +1,169 @@
+{
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.ameriprise.com/"
+      ],
+      "representativeUrl": "https://www.ameriprise.com/",
+      "description": "Ameriprise homepage: hero with login, spotlight columns, promos, ratings cards, insights tabs, advisor search, disclaimers",
+      "blocks": [
+        {
+          "name": "hero-facet",
+          "instances": [
+            "section.ComplexHero"
+          ]
+        },
+        {
+          "name": "login-inline",
+          "instances": [
+            ".LoginClient .wam-login-comp"
+          ]
+        },
+        {
+          "name": "columns-divider",
+          "instances": [
+            ".Spotlight"
+          ]
+        },
+        {
+          "name": "columns-promo",
+          "instances": [
+            ".component-wrapper > .component-loaded > div > section.Promo-redesign"
+          ]
+        },
+        {
+          "name": "cards-icon",
+          "instances": [
+            ".Categories-blocks"
+          ]
+        },
+        {
+          "name": "tabs-split",
+          "instances": [
+            ".HorizontalTabs"
+          ]
+        },
+        {
+          "name": "advisor-search-dark",
+          "instances": [
+            ".DynamicAdvisor"
+          ]
+        }
+      ],
+      "urlPattern": "/",
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "hero-login",
+          "selector": [
+            ".OneColumnLayout-container > div > div:has(> .ComplexHero-container)",
+            ".OneColumnLayout-container > div > div:nth-of-type(1)"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-facet",
+            "login-inline"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "spotlight",
+          "selector": [
+            ".OneColumnLayout-container > div > div:has(> .Spotlight-component)",
+            ".OneColumnLayout-container > div > div:nth-of-type(3)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-divider"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "time-promo",
+          "selector": [
+            ".OneColumnLayout-container > div > div:nth-of-type(4)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "top-ratings",
+          "selector": [
+            ".OneColumnLayout-container > div > div:has(> .Categories-component)",
+            ".OneColumnLayout-container > div > div:nth-of-type(5)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-icon"
+          ],
+          "defaultContent": [
+            ".Categories > .u-sizeConstrained > .Content"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "retirement-quiz-promo",
+          "selector": [
+            ".OneColumnLayout-container > div > div:nth-of-type(6)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "insights-tabs",
+          "selector": [
+            ".OneColumnLayout-container > div > div:has(.HorizontalTabs)",
+            ".OneColumnLayout-container > div > div:nth-of-type(7)"
+          ],
+          "style": "center",
+          "blocks": [
+            "tabs-split"
+          ],
+          "defaultContent": [
+            "section > header h2"
+          ]
+        },
+        {
+          "id": "section-7",
+          "name": "advisor-search",
+          "selector": [
+            "#advisor-locator",
+            ".OneColumnLayout-container > div > div:nth-of-type(8)"
+          ],
+          "style": null,
+          "blocks": [
+            "advisor-search-dark"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8",
+          "name": "disclaimers",
+          "selector": [
+            ".OneColumnLayout-container > div > div:has(.SimpleContent)",
+            ".OneColumnLayout-container > div > div:nth-of-type(10)"
+          ],
+          "style": "disclaimer",
+          "blocks": [],
+          "defaultContent": [
+            ".SimpleContent > .u-sizeConstrained > .Content"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "projectType": "da"
+  }
+}

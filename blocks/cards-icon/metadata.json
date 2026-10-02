@@ -1,0 +1,20 @@
+{
+  "variantName": "cards-icon",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "recognition-highlights",
+    "imagePattern": "icon",
+    "structure": "icon + bold text"
+  },
+  "contentPattern": "3 rows x 2 cells; cell 1: icon image ; cell 2: bold text",
+  "usage": {
+    "pagesUsing": ["https://www.ameriprise.com/"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

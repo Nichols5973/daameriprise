@@ -1,0 +1,20 @@
+{
+  "variantName": "login-inline",
+  "baseBlock": "login",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light-grey",
+    "density": "compact",
+    "purpose": "account-login",
+    "imagePattern": "noimg",
+    "structure": "title + inputs + button + links"
+  },
+  "contentPattern": "Row 1: title 'Log in to your account' ; key/value rows (key | value) for action URL and field labels: user id, password, show, hide, remember, remember help, submit ; key/value link rows: forgot, new user ; any other row of links is rendered beside the submit button",
+  "usage": {
+    "pagesUsing": ["https://www.ameriprise.com/"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

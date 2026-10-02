@@ -63,8 +63,8 @@ a:any-link {
 :is(main, article.article-body) blockquote {
   margin: var(--space-2xl, 48px) 0;
   padding: var(--space-l) var(--space-xl);
-  border-left: 4px solid var(--color-gold);
-  background-color: light-dark(rgb(197 160 89 / 6%), rgb(197 160 89 / 8%));
+  border-left: 4px solid var(--color-brand);
+  background-color: light-dark(var(--color-amp-blue-tint), rgb(111 178 230 / 8%));
   border-radius: 0 8px 8px 0;
   font-family: var(--font-family-serif);
   font-size: var(--body-font-size-xl);
@@ -107,21 +107,6 @@ a:any-link {
   :is(main, article.article-body) > .section.divider:first-child {
     padding-block-start: 0;
   }
-}
-
-/* H2 accent — thin brand-gradient bar beneath h2 in plain content sections */
-:is(main, article.article-body) > .section:not(.hero-container, .gradient, .ink, .rust) h2::after {
-  content: '';
-  display: block;
-  width: 2.5rem;
-  height: 2px;
-  margin-top: 0.35em;
-  background: var(--gradient-brand);
-  border-radius: 1px;
-}
-
-:is(main, article.article-body) > .section.center:not(.hero-container, .gradient, .ink, .rust) h2::after {
-  margin-inline: auto;
 }
 
 /* ==========================================================================
@@ -167,9 +152,8 @@ header .nav-wrapper.scrolled {
 
 /* Focus-visible on all interactive elements: consistent brand ring */
 :is(main, article.article-body) :is(a, button, input, select, textarea, [tabindex]):focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--link-color);
   outline-offset: 3px;
-  border-radius: 2px;
 }
 
 .code-block {
