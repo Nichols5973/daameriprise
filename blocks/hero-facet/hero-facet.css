@@ -1,6 +1,6 @@
 /* Hero (facet) block - mobile-first
  * Mobile/tablet: full-bleed, portrait over facet background, then a dark-blue text panel.
- * Desktop (>= 1200px): boxed to the content grid, text left / portrait right over the facet.
+ * Desktop (>= 900px): boxed to the content grid, text left / portrait right over the facet.
  */
 
 /* full-bleed below desktop: drop the default section content width/padding */
@@ -101,28 +101,8 @@
   background-color: var(--color-amp-blue);
 }
 
-@media (width >= 900px) {
-  .hero-facet .hero-facet-background,
-  .hero-facet .hero-facet-media {
-    height: 450px;
-  }
-
-  .hero-facet .hero-facet-media {
-    padding: 0 48px;
-  }
-
-  .hero-facet .hero-facet-text {
-    padding: 48px;
-  }
-
-  .hero-facet .hero-facet-text h1 {
-    font-size: var(--heading-font-size-xxl);
-    line-height: 51.25px;
-  }
-}
-
 /* Desktop: boxed to the content grid, text left / portrait right */
-@media (width >= 1200px) {
+@media (width >= 900px) {
   .hero-facet-container .hero-facet-wrapper {
     box-sizing: border-box;
     max-width: var(--grid-container-width);
@@ -146,6 +126,11 @@
     justify-content: center;
     padding: 64px 0 64px 64px;
     background-color: transparent;
+  }
+
+  .hero-facet .hero-facet-text h1 {
+    font-size: var(--heading-font-size-xxl);
+    line-height: 51.25px;
   }
 
   .hero-facet .hero-facet-media {
