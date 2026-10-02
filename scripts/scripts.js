@@ -396,7 +396,10 @@ async function loadEager(doc) {
 async function loadLazy(doc) {
   const headerEl = doc.querySelector('header');
   const footerEl = doc.querySelector('footer');
-  loadHeader(headerEl);
+  /* editor previews (DA canvas, quick-edit) re-run loadPage on every content refresh;
+     header and footer persist across runs, so only load them once */
+  const loadChrome = !headerEl.querySelector(':scope > .header');
+  if (loadChrome) loadHeader(headerEl);
   const templateName = getMetadata('template');
   if (templateName) {
     document.body.classList.add(templateName);
@@ -419,7 +422,7 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadFooter(footerEl);
+  if (loadChrome) loadFooter(footerEl);
   if (!IS_EDITOR) await martechLazy();
 
   /* Scroll reveal: sections below the viewport animate in as they enter */
@@ -467,8 +470,10 @@ async function loadLazy(doc) {
     });
     observer.observe(el, { childList: true, subtree: true });
   };
-  waitAndInline(headerEl);
-  waitAndInline(footerEl);
+  if (loadChrome) {
+    waitAndInline(headerEl);
+    waitAndInline(footerEl);
+  }
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
