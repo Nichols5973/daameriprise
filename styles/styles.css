@@ -154,7 +154,7 @@
   --body-line-height: 1.5;
 
   /* nav / layout */
-  --nav-height: 64px;
+  --nav-height: 72px;
   --header-height: var(--nav-height);
 
   /* boilerplate compatibility – map to design tokens */
@@ -214,6 +214,9 @@
     --heading-font-size-s: 18px;
     --heading-font-size-xs: 16px;
     --section-block-space: var(--space-2xl);
+
+    /* two-row desktop header: 72px bar + 52px nav */
+    --header-height: 124px;
   }
 }
 
@@ -294,7 +297,7 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  height: var(--header-height);
 }
 
 header .header,
